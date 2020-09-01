@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.vincent.videocompressor.VideoCompress;
 
@@ -48,21 +49,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initView() {
-        Button btn_select = (Button) findViewById(R.id.btn_select);
+        Button btn_select = findViewById(R.id.btn_select);
         btn_select.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent();
-                /* 开启Pictures画面Type设定为image */
-                //intent.setType("video/*;image/*");
-                //intent.setType("audio/*"); //选择音频
-                intent.setType("video/*"); //选择视频 （mp4 3gp 是android支持的视频格式）
+                //intent.setType("video/*;image/*"); // For Image or Video Input
+                //intent.setType("audio/*"); // For Audio Input
+                intent.setType("video/*");
                 intent.setAction(Intent.ACTION_GET_CONTENT);
                 startActivityForResult(intent, REQUEST_FOR_VIDEO_FILE);
             }
         });
 
-        Button btn_compress = (Button) findViewById(R.id.btn_compress);
+        Button btn_compress = findViewById(R.id.btn_compress);
         btn_compress.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -126,11 +126,13 @@ public class MainActivity extends AppCompatActivity {
                 try {
                     inputPath = Util.getFilePath(this, data.getData());
                     tv_input.setText(inputPath);
+                    Toast.makeText(this, "pa:" + inputPath, Toast.LENGTH_SHORT).show();
                 } catch (URISyntaxException e) {
                     e.printStackTrace();
+                    Toast.makeText(this, "e:" + e.getReason(), Toast.LENGTH_SHORT).show();
                 }
 
-//                inputPath = "/storage/emulated/0/DCIM/Camera/VID_20170522_172417.mp4"; // 图片文件路径
+//                inputPath = "/storage/emulated/0/DCIM/Camera/VID_20170522_172417.mp4";
 //                tv_input.setText(inputPath);// /storage/emulated/0/DCIM/Camera/VID_20170522_172417.mp4
             }
         }
