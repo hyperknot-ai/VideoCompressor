@@ -1,6 +1,26 @@
 # VideoCompressor
 A High-performance video compressor for Android using Hardware decoding and encoding API(MediaCodec).
 
+## Dependency
+
+```
+allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+        
+```
+
+```
+dependencies {
+	        implementation 'com.github.hyperknot-ai:VideoCompressor:Tag'
+	}
+```
+
+
+
 ## Demo
 ![Demo](/pic/Demo.gif)
 
