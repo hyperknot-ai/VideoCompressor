@@ -15,9 +15,10 @@ allprojects {
 
 ```
 dependencies {
-	        implementation 'com.github.hyperknot-ai:VideoCompressor:Tag'
+	        implementation 'com.github.hyperknot-ai:VideoCompressor:LATEST_VERSION'
 	}
 ```
+[![](https://jitpack.io/v/hyperknot-ai/VideoCompressor.svg)](https://jitpack.io/#hyperknot-ai/VideoCompressor)
 
 
 
